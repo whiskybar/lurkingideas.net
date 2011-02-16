@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" debug="true">
+<head>
+    <link rel="shortcut icon" href="/static/favicon.ico" type="image/vnd.microsoft.icon" />
+    <title>Where is your page?</title>
+    <style type="text/css">
+        body { margin: 4em; }
+        h1 { background-color: #008482 /*#8D0000*/; color: #FFFFFF; text-align: center; margin-bottom: 3em; border: solid #173db8 /*#D18C26*/ 0.2em; }
+        p { margin-left: 250px; }
+        #aliens { position: absolute; left: 50px; top: 150px; }
+    </style>
+    <script language="JavaScript">
+        running = true;
+        dx = 0;
+        dy = 0;
+        steps = 0;
+        function move(id) {
+            var image = document.getElementById(id);
+            if (steps &&
+                -50 < image.offsetLeft && image.offsetLeft < document.width + 50 &&
+                -50 < image.offsetTop && image.offsetTop < document.height + 50) {
+                steps = steps - 1;
+            }
+            else {
+                steps = Math.floor(Math.random()*60);
+                dx =  Math.floor(Math.random()*30) - 15;
+                dy = Math.floor(Math.random()*20) - 10;
+            }
+
+            image.style.left = String(image.offsetLeft + dx) + "px";
+            image.style.top = String(image.offsetTop + dy) + "px";
+        }
+
+        function animate2(id) {
+            setInterval("move('" + id + "')", 100);
+        }
+
+        function animate(id) {
+            setTimeout("animate2('" + id + "')", 4000);
+        }
+    </script>
+</head>
+<body onLoad="animate('aliens');">
+    <h1>404</h1>
+    <img id="aliens" src="/static/images/ufo.png" />
+    <p>Aliens have wiped out this page with their laser beams!</p>
+    <p>It may so happen the information is no longer here or has been moved to another location. Or, it has never been here in the first place! You are not trying to guess URLs, are you?</p>
+    <p><a href="/">Beam me back!</a></p>
+</body>
+</html>

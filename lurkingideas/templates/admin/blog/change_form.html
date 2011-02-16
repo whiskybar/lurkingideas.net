@@ -1,0 +1,18 @@
+{% extends "admin/change_form.html" %}
+
+{% block extrahead %}{{ block.super }}
+<script type="text/javascript" src="/static/js/jquery-1.4.1.min.js"></script>
+<script type="text/javascript" src="/static/markitup/jquery.markitup.js"></script>
+<script type="text/javascript" src="/static/markitup/sets/default/set.js"></script>
+<link rel="stylesheet" type="text/css" href="/static/markitup/skins/markitup/style.css" />
+<link rel="stylesheet" type="text/css" href="/static/markitup/sets/default/style.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/admin.css" />
+
+<script type="text/javascript" >
+   $(document).ready(function() {
+      mySettings.resizeHandle = true;
+      //mySettings.previewAutoRefresh = true;
+      $("textarea").markItUp(mySettings);
+   });
+</script>
+{% endblock %}

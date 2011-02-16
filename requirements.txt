@@ -1,0 +1,5 @@
+-e git+git://github.com/django/django.git#egg=django
+-e hg+http://bitbucket.org/offline/django-annoying#egg=django-annoying
+-e git://github.com/whiskybar/django-links.git#egg=django-links
+-e git://github.com/whiskybar/django-restblog.git#egg=django-restblog
+docutils

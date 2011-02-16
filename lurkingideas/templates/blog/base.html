@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : Abrasive
+Description: A two-column, fixed-width design with dirty looks.
+Version    : 1.0
+Released   : 20081122
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>lurkingideas of Jiri Barton</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="/static/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+<link href="/static/css/abrasive.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="/static/css/lurking.css" rel="stylesheet" type="text/css" media="screen" />
+{% if feed %}<link rel="alternate" type="application/rss+xml" title="lurkingideas.net" href="{{ feed }}" />{% endif %}
+</head>
+<body>
+<div id="wrapper">
+	<div id="header">
+		<div id="logo">
+			<h1><a href="{% url home %}">lurkingideas</a></h1>
+			<h2>of <a href="mailto:jbar@hosting4u.cz">Jiri Barton</a></h2>
+		</div>
+		<!-- end #logo -->
+		<div id="menu">
+			<ul>
+				<li class="first"><a href="#">News</a></li>
+				<li><a href="#">Photos</a></li>
+				<li><a href="/static/resources/cv.html">About</a></li>
+				<li><a href="#">Contact Me</a></li>
+			</ul>
+		</div>
+		<!-- end #menu -->
+	</div>
+	<!-- end #header -->
+	<div id="page">
+		<div id="bgtop">
+			<div id="bgbottom">
+				<div id="content">
+                {% block posts %}
+                {% endblock %}
+				</div>
+				<!-- end #content -->
+				<div id="sidebar">
+					<ul>
+						{% for category in categories %}
+                        <li>
+							<h2>{{ category }}</h2>
+							<ul>
+							{% for link in category.link_set.all %}
+                                <li{% if link.description %} title="{{ link.description }}"{% endif %}>
+                                {% if link.url %}
+                                    <a href="{{ link.url }}" target="_blank">{{ link }}</a>
+                                {% else %}
+                                    {{ link }}
+                                {% endif %}
+                                </li>
+                            {% endfor %}
+							</ul>
+						</li>
+						{% endfor %}
+					</ul>
+				</div>
+				<!-- end #sidebar -->
+				<div style="clear: both;">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	<!-- end #page -->
+	<div id="footer">
+		<p>Copyright (c) 2010 Jiří Bartoň | Design by <a href="http://www.nodethirtythree.com/">NodeThirtyThree</a> and <a href="http://www.freecsstemplates.org/">FreeCSSTemplates</a> | <a href="/admin/">admin</a></p>
+	</div>
+	<!-- end #footer -->
+</div>
+<!-- end #wrapper -->
+</body>
+</html>

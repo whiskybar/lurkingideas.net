@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" debug="true">
+<head>
+    <link rel="shortcut icon" href="/static/favicon.ico" type="image/vnd.microsoft.icon" />
+    <title>What blew up?</title>
+    <style type="text/css">
+        body { margin: 4em; }
+        h1 { background-color: #565B65; color: #FFFFFF; text-align: center; margin-bottom: 1em; border: solid #D18C26 0.2em; }
+        #happy { float: left; padding-left: 2em; margin-right: 5em; margin-top: 1em; }
+        #evil { position: absolute; left: 50em; top: 20em; }
+    </style>
+    <script language="JavaScript">
+        running = true;
+        dx = 0;
+        dy = 0;
+        steps = 0;
+        function move(id) {
+            var image = document.getElementById(id);
+            if (steps &&
+                300 < image.offsetLeft && image.offsetLeft < document.width + 50 &&
+                -50 < image.offsetTop && image.offsetTop < document.height + 50) {
+                steps = steps - 1;
+            }
+            else {
+                steps = Math.floor(Math.random()*60);
+                dx =  Math.floor(Math.random()*30) - 15;
+                dy = Math.floor(Math.random()*20) - 10;
+            }
+
+            image.style.left = String(image.offsetLeft + dx) + "px";
+            image.style.top = String(image.offsetTop + dy) + "px";
+        }
+
+        function animate2(id) {
+            setInterval("move('" + id + "')", 100);
+        }
+
+        function animate(id) {
+            setTimeout("animate2('" + id + "')", 4000);
+        }
+    </script>
+</head>
+<body onLoad="animate('evil');">
+    <h1>500</h1>
+    <img id="happy" src="/static/images/happy_page.png" />
+    <img id="evil" src="/static/images/evil_page.png" />
+    <p>This page has met its anti-page... and resulted in a blast!</p>
+    <p>Creator of the page has been contacted. He will sure drop everything immediately to outroot the dark forces and prevent another anihilation from happenning in this universe!</p>
+</body>
+</html>
