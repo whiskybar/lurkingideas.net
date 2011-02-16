@@ -1,1 +1,2 @@
 .markItUp { float: left; }
+.markItUp .preview a { display: none; }
