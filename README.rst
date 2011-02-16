@@ -1,7 +1,7 @@
 My blog
 =======
 
-lurkingideas.net is a blog site powered by `reStructuredText <http://docutils.sourceforge.net/rst.html>`_ written
+`lurkingideas.net <http://lurkingideas.net>`_ is a blog site powered by `reStructuredText <http://docutils.sourceforge.net/rst.html>`_ written
 in `Django <http://www.djangoproject.com>`_.
 
 
