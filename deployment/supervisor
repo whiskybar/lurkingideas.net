@@ -1,0 +1,15 @@
+[program:lurkingideas.net]
+command=uwsgi-python2.6
+	--socket /home/jbar/envs/lurkingideas/run/uwsgi.sock
+	--chmod-socket
+	--processes 2
+	--master
+	--home /home/jbar/envs/lurkingideas
+	--module django.core.handlers.wsgi:WSGIHandler()
+environment=DJANGO_SETTINGS_MODULE='lurkingideas.settings'
+user=jbar
+autostart=true
+autorestart=true
+stdout_logfile=/home/jbar/envs/lurkingideas/log/uwsgi.log
+stderr_logfile=/home/jbar/envs/lurkingideas/log/uwsgi.err
+stopsignal=QUIT
