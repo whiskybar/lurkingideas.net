@@ -17,7 +17,7 @@ server {
 	}
 
 	location /media {
-		root /home/jbar/envs/lurkingideas.net/src/django/django/contrib/admin;
+		root /home/jbar/envs/lurkingideas/src/django/django/contrib/admin;
 	}
 }
 

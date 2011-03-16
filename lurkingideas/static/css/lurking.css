@@ -7,3 +7,5 @@ dt { font-weight: bold;  margin-top: 0.4em; }
 
 #.literal-block { color: #000000; }
 .literal-block { background: #E7E7E7; }
+
+#disqus_thread { padding: 15px 15px 25px; }
